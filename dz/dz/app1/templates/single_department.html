@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <h1>Н{{name}}</h1>
+    <h1>{{leader}}</h1>
+    <h1>{{main_speciality}}</h1>
+    <h1>{{number_of_members}}</h1>
+    <h1>{{worker}}</h1>
+
+
+    <div class="tableRow">
+    <p>Название отдела:</p><p>{{name}}</p>
+    </div>
+    <div class="tableRow">
+    <p>Руководитель отдела:</p><p>{{leader}}</p>
+    </div>
+    <div class="tableRow">
+    <p>Специализация отдела:</p><p>{{main_speciality}}</p>
+    </div>
+    <div class="tableRow">
+    <p>Количество работников:</p><p>{{number_of_members}}</p>
+    </div>
+    <div class="tableRow">
+    <p>Работники:</p><p>
+        {% for worker in workers %}
+            <a href="{% url 'worker_url' worker_id=worker.id %}">{{worker.name}}: :</a>
+        {% empty %}
+        {% endfor %}
+        </p>
+    </div>
+    <div id="add_workers">
+
+    </div>
+
+</body>
+</html>

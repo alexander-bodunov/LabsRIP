@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    {% if goods.paginator.num_pages >1 %}
+        <div id="pagination">
+            {% if goods.has_previous %}
+                <div id="previous-page"><a href=" cat_id="category.pk"?page={{goods.previous_page_number}}">&lt;</a></div>
+            {% endif %}
+            {% if goods.has_next %}
+                <div id="next-page"><a href=" cat_id="category.pk"?page={{goods.previous_page_number}}">&lt;</a></div>
+            {% endif %}
+            <div id="num-pages">
+                {% for pn in goods.paginator.page_range %}
+                    {% if not forloop.first %}
+                        &nbsp;&nbsp;|&nbsp;&nbsp;
+                    {% endif %}
+                    {% if goods.number !=pn %}
+                        <a href="">
+                    {% endif %}
+                        {{pn}}
+                    {% if goods.number !=pn %}
+                        </a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+</body>
+</html>

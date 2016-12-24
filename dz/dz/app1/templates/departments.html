@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <p>Здраствуйте,{{user.get_username}}<p></p>
+    <p><a href="{% url 'login_url' %}">Зарегистрироваться</a><a href="{% url 'autenfication_url' %}">Войти</a></p>
+    <p></p>
+    {%for department in departments%}
+        <a href="{% url 'single_department_url' department.id %}">Название отдела : {{department.name}} ;специализация :{{department.main_speciality}}
+        </a>
+        </br>
+        {%empty%}
+        <li>Пустой список</li>
+        {%endfor%}
+        </br>
+
+        <div class="add">
+            <a href="{% url 'add_url' %}">Создать отдел</a>
+        </div>
+        <div class="pagination">
+        <span class="step-links">
+        {% if paginator.has_previous %}
+            <a href="{% url 'departments_url_pag' paginator.previous_page_number %}">previous</a>
+        {% endif %}
+
+        <span class="current">
+
+        </span>
+        <span class="all">
+            {% for i in paginator.num_pages %}
+                <a href="{% url 'departments_url_pag' i %}">{{i}}</a>
+            {% endfor %}
+        </span>
+
+        {% if paginator.has_next %}
+            <a href="{% url 'departments_url_pag' paginator.next_page_number %}">next</a>
+        {% endif %}
+        </span>
+        </div>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+div.tableRow {
+    display:table-row;
+}
+div.tableRow p{
+    width: 100px;
+    display: table-cell;
+    vertical-align: top;
+    text-align:right;
+    padding: 3px;
+}
+
+.plot{
+    width : 500px;
+    height : 500px;
+    border : solid;
+}
