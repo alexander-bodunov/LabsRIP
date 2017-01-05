@@ -11,7 +11,12 @@ from librip.iterators import Unique as unique
 # Здесь необходимо в переменную path получить
 # путь до файла, который был передан при запуске
 
+my_file=sys.argv[1]
+'''
 with open("data_light_cp1251.json") as f:
+    data = json.load(f)
+'''
+with open(my_file) as f:
     data = json.load(f)
 
 
@@ -27,13 +32,13 @@ def f1(arg):
 
 @print_result
 def f2(arg):
-    return list(filter(lambda x : not x.lower().find('программист') , arg))
+    return list(filter(lambda x:x[0:11] in ['программист','Программист'] , arg))
 
 
 @print_result
 def f3(arg):
-    return list( "%s с опытом Python" % (i, ) for i in arg)
-
+    #return list( "%s с опытом Python" % (i, ) for i in arg)
+    return list(map(lambda x: x+" с опытом Python" ,arg))
 
 @print_result
 def f4(arg):
