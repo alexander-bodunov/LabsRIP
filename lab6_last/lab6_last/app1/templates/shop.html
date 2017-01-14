@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <p>Магазины :</p>
+    {% for shop in shops %}
+        <p>{{shop.name}}</p>
+    {% empty %}
+        <p>Нет магазинов</p>
+    {% endfor %}
+</body>
+</html>

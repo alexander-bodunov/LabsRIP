@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .book{
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    {% for book in books %}
+        <div class="book">
+            <p>книга :{{book.name}}</p>
+            <p>автор :{{book.author}}</p>
+            <p>описание :{{book.description}}</p>
+            <a href="{%url 'book' book.id %}">перейти к товару</a>
+        </div>
+    {% empty %}
+        <p>Книг нет</p>
+    {% endfor %}
+    <a href="{% url 'add_url' %}">Перейти к добавлению книги</a>
+    <a href="{% url 'delete' %}">Удалить все книги</a>
+    <a href="{% url 'orm' %}">Django ORM</a>
+</body>
+</html>

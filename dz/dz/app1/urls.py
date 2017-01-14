@@ -9,6 +9,7 @@ from django.views.generic.base import TemplateView
 
 
 urlpatterns = [
+    url(r'admin/', admin.site.urls),
     #url(r'^autenfication/$',forms.LoginFormView.as_view(),name="autenfication_url"),
     #url(r'^register/$',forms.RegisterFormView.as_view(),name="login_url"),
     url(r'^autenfication/$',views.login,name="autenfication_url"),
