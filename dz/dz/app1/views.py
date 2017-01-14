@@ -53,7 +53,7 @@ class SingleDepartmentView(TemplateView):
         context1= models.Department.objects.get(pk=context['department_id'])'''
         context_copy=get_department(context['department_id'])
         context_worker=get_workers(context['department_id'])
-        a=context_copy[len(context_copy)-1]
+        a=context_copy[0]
         context['name']=a.name
         context['leader']=a.leader
         context['main_speciality']=a.main_speciality
