@@ -9,7 +9,7 @@
     <p><a href="{% url 'login_url' %}">Зарегистрироваться</a><a href="{% url 'autenfication_url' %}">Войти</a></p>
     <p></p>
     {%for department in departments%}
-        <a href="{% url 'single_department_url' department.id %}">Название отдела : {{department.name}} ;специализация :{{department.main_speciality}}
+        <a href="{% url 'single_department_url' department.pk %}">Название отдела : {{department.name}} ;специализация :{{department.main_speciality}}
         </a>
         </br>
         {%empty%}

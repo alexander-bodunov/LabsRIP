@@ -19,7 +19,7 @@ data={
 
 
 def get_department(id_chosen):
-    return models.Department.objects.get(pk=id_chosen)
+    return models.Department.objects.filter()#get()#pk=id_chosen | number_of_members < 10)
 
 def get_workers(id_chosen):
     return models.Worker.objects.filter(department=id_chosen).values()
@@ -53,10 +53,11 @@ class SingleDepartmentView(TemplateView):
         context1= models.Department.objects.get(pk=context['department_id'])'''
         context_copy=get_department(context['department_id'])
         context_worker=get_workers(context['department_id'])
-        context['name']=context_copy.name
-        context['leader']=context_copy.leader
-        context['main_speciality']=context_copy.main_speciality
-        context['number_of_members']=context_copy.number_of_members
+        a=context_copy[len(context_copy)-1]
+        context['name']=a.name
+        context['leader']=a.leader
+        context['main_speciality']=a.main_speciality
+        context['number_of_members']=a.number_of_members
         context['workers']=context_worker
         return context
 
@@ -68,6 +69,7 @@ class WorkerView(TemplateView):
         context_worker=context_worker[0]
         context['name']= context_worker['name']
         context['gift']=context_worker['gift']
+        context['photo']=context_worker['photo']
         return context
 
 
