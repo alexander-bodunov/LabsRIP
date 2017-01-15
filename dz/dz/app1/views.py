@@ -19,7 +19,7 @@ data={
 
 
 def get_department(id_chosen):
-    return models.Department.objects.filter()#get()#pk=id_chosen | number_of_members < 10)
+    return models.Department.objects.filter(pk=id_chosen)#get()#pk=id_chosen | number_of_members < 10)
 
 def get_workers(id_chosen):
     return models.Worker.objects.filter(department=id_chosen).values()
